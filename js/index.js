@@ -6,8 +6,14 @@ function Book(title, author, pages) {
   this.pages = pages;
 }
 
+function displayForm() {
+  let formContainer = document.getElementById('formContainer')
+  formContainer.style.display = 'block'
+  document.getElementById('showForm').style.display = 'none'
+}
+
 function getBookDetails() {
-  
+  disp
 }
 function addBookToLibrary() {
 
