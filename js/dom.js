@@ -3,7 +3,7 @@ function renderPage() {
   bookContainer.innerHTML = '';
   for (let i = 0; i < myLibrary.length; i++) {
     const card = document.createElement('div');
-    card.classList.add('card', 'card-custom', 'my-3');
+    card.classList.add('card', 'card-custom', 'my-3', 'mx-1', 'shadow-sm', 'col-3');
 
     const cardBody = document.createElement('div');
     cardBody.classList.add('card-body');

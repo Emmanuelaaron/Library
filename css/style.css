@@ -3,6 +3,5 @@
 }
 
 .card-custom {
-  width: 500px;
-  height: auto;
+position: relative;
 }
