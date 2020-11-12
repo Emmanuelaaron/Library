@@ -1,4 +1,7 @@
-let myLibrary = [];
+const myLibrary = [];
+const title = document.getElementById('bookTitle');
+const author = document.getElementById('authorName');
+const pages = document.getElementById('pageNum');
 
 function Book(title, author, pages) {
   this.title = title;
@@ -7,19 +10,33 @@ function Book(title, author, pages) {
 }
 
 function displayForm() {
-  let formContainer = document.getElementById('formContainer')
-  formContainer.style.display = 'block'
-  document.getElementById('showForm').style.display = 'none'
+  const formContainer = document.getElementById('formContainer');
+  if (window.getComputedStyle(formContainer).display === 'none') {
+    formContainer.style.display = 'block';
+  } else {
+    formContainer.style.display = 'none';
+  }
+  displayButton();
 }
 
 function getBookDetails() {
-  let title = document.getElementById('bookTitle').value
-  let author = document.getElementById('authorName').value
-  let pages = document.getElementById('pageNum').value
-  let newBook = new Book(title, author, pages)
-  addBookToLibrary(newBook)
+  const newBook = new Book(title.value, author.value, pages.value);
+  addBookToLibrary(newBook);
+  displayForm();
+  title.value = '';
+  author.value = '';
+  pages.value = '';
 }
 function addBookToLibrary(newBook) {
-  myLibrary.push(newBook)
-  renderPage()
+  myLibrary.push(newBook);
+  renderPage();
+}
+
+function displayButton() {
+  const button = document.getElementById('showForm');
+  if (window.getComputedStyle(button).display === 'none') {
+    button.style.display = 'block';
+  } else {
+    button.style.display = 'none';
+  }
 }
