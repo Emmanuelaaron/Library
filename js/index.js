@@ -21,8 +21,5 @@ function getBookDetails() {
 }
 function addBookToLibrary(newBook) {
   myLibrary.push(newBook)
-  for (let i = 0; i < myLibrary.length; i++) {
-    console.log(myLibrary[i])
-    
-  }
+  renderPage()
 }

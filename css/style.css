@@ -1,3 +1,8 @@
 #formContainer {
   display: none;
 }
+
+.card-custom {
+  width: 500px;
+  height: auto;
+}
