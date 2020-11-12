@@ -1,4 +1,4 @@
-const myLibrary = [];
+let myLibrary = [];
 
 function Book(title, author, pages) {
   this.title = title;
@@ -13,8 +13,16 @@ function displayForm() {
 }
 
 function getBookDetails() {
-  disp
+  let title = document.getElementById('bookTitle').value
+  let author = document.getElementById('authorName').value
+  let pages = document.getElementById('pageNum').value
+  let newBook = new Book(title, author, pages)
+  addBookToLibrary(newBook)
 }
-function addBookToLibrary() {
-
+function addBookToLibrary(newBook) {
+  myLibrary.push(newBook)
+  for (let i = 0; i < myLibrary.length; i++) {
+    console.log(myLibrary[i])
+    
+  }
 }
