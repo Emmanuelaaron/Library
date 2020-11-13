@@ -1,9 +1,9 @@
-function renderPage() {
+function renderBook() {
   const bookContainer = document.getElementById('bookContainer');
   bookContainer.innerHTML = '';
   for (let i = 0; i < myLibrary.length; i++) {
     const card = document.createElement('div');
-    card.classList.add('card', 'card-custom', 'my-3', 'mx-1', 'shadow-sm', 'col-3');
+    card.classList.add('card', 'my-3', 'mx-1', 'shadow-sm', 'col-3');
 
     const cardBody = document.createElement('div');
     cardBody.classList.add('card-body');
@@ -26,6 +26,45 @@ function renderPage() {
 
     card.appendChild(cardBody);
 
+    const cardFooter = document.createElement('div');
+    cardFooter.classList.add('card-footer');
+
+    const deleteCard = document.createElement('button');
+    deleteCard.innerText = 'Delete'
+    deleteCard.classList.add('btn', 'btn-danger')
+    deleteCard.onclick = function(){
+      myLibrary.splice(i, 1)
+      renderBook()
+    };
+    
+    const readStatus = document.createElement('button');
+    readStatus.classList.add('btn', 'btn-info', 'my-2')
+    const read = 'Finished Reading'
+    const notRead = 'Not read yet'
+    console.log(myLibrary[i].readStatus)
+    if (myLibrary[i].readStatus === true) {
+      readStatus.innerText = read
+    }else {
+      readStatus.innerText = notRead
+    }
+    readStatus.onclick = function(){
+      if (readStatus.innerText === read) {
+        readStatus.innerText = notRead
+      }else {
+        readStatus.innerText = read
+      }
+      
+    };
+
+    cardFooter.appendChild(deleteCard)    
+    cardFooter.appendChild(readStatus)
+
+    card.appendChild(cardFooter)
+    card.dataset.index = i
+
     bookContainer.appendChild(card);
   }
+}
+
+function removeBook(params) {
 }
