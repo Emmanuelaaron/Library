@@ -36,7 +36,7 @@ function displayForm() {
 
 function addBookToLibrary(newBook) {
   myLibrary.push(newBook);
-  renderBook();
+  renderBook(myLibrary);
 }
 
 function getBookDetails() {

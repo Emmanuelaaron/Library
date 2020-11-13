@@ -1,10 +1,8 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-unused-vars */
-/* eslint-disable func-names */
-/* eslint-disable no-undef */
-/* eslint-disable no-loop-func */
 
-function renderBook() {
+
+function renderBook(myLibrary) {
   const bookContainer = document.getElementById('bookContainer');
   bookContainer.innerHTML = '';
   for (let i = 0; i < myLibrary.length; i += 1) {
@@ -40,12 +38,12 @@ function renderBook() {
     deleteCard.classList.add('btn', 'btn-danger');
     deleteCard.onclick = function () {
       myLibrary.splice(i, 1);
-      renderBook();
+      renderBook(myLibrary);
     };
 
     const readStatus = document.createElement('button');
     readStatus.classList.add('btn', 'btn-info', 'my-2');
-    const read = "Not read! finish reading";
+    const read = 'Not read! finish reading';
     const notRead = 'Undo read status';
     if (myLibrary[i].readStatus === true) {
       readStatus.innerText = notRead;
