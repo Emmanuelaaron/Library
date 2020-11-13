@@ -1,7 +1,13 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-unused-vars */
+/* eslint-disable func-names */
+/* eslint-disable no-undef */
+/* eslint-disable no-loop-func */
+
 function renderBook() {
   const bookContainer = document.getElementById('bookContainer');
   bookContainer.innerHTML = '';
-  for (let i = 0; i < myLibrary.length; i++) {
+  for (let i = 0; i < myLibrary.length; i += 1) {
     const card = document.createElement('div');
     card.classList.add('card', 'my-3', 'mx-1', 'shadow-sm', 'col-3');
 
@@ -30,41 +36,36 @@ function renderBook() {
     cardFooter.classList.add('card-footer');
 
     const deleteCard = document.createElement('button');
-    deleteCard.innerText = 'Delete'
-    deleteCard.classList.add('btn', 'btn-danger')
-    deleteCard.onclick = function(){
-      myLibrary.splice(i, 1)
-      renderBook()
+    deleteCard.innerText = 'Delete';
+    deleteCard.classList.add('btn', 'btn-danger');
+    deleteCard.onclick = function () {
+      myLibrary.splice(i, 1);
+      renderBook();
     };
-    
+
     const readStatus = document.createElement('button');
-    readStatus.classList.add('btn', 'btn-info', 'my-2')
-    const read = 'Finished Reading'
-    const notRead = 'Not read yet'
-    console.log(myLibrary[i].readStatus)
+    readStatus.classList.add('btn', 'btn-info', 'my-2');
+    const read = 'Finished Reading';
+    const notRead = 'Not read yet';
     if (myLibrary[i].readStatus === true) {
-      readStatus.innerText = read
-    }else {
-      readStatus.innerText = notRead
+      readStatus.innerText = notRead;
+    } else {
+      readStatus.innerText = read;
     }
-    readStatus.onclick = function(){
+    readStatus.onclick = function () {
       if (readStatus.innerText === read) {
-        readStatus.innerText = notRead
-      }else {
-        readStatus.innerText = read
+        readStatus.innerText = notRead;
+      } else {
+        readStatus.innerText = read;
       }
-      
     };
 
-    cardFooter.appendChild(deleteCard)    
-    cardFooter.appendChild(readStatus)
+    cardFooter.appendChild(deleteCard);
+    cardFooter.appendChild(readStatus);
 
-    card.appendChild(cardFooter)
-    card.dataset.index = i
+    card.appendChild(cardFooter);
+    card.dataset.index = i;
 
     bookContainer.appendChild(card);
   }
-}
-
-function removeBook(params) {
 }
