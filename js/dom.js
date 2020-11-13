@@ -64,7 +64,6 @@ function renderBook() {
     cardFooter.appendChild(readStatus);
 
     card.appendChild(cardFooter);
-    card.dataset.index = i;
 
     bookContainer.appendChild(card);
   }
