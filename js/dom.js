@@ -45,8 +45,8 @@ function renderBook() {
 
     const readStatus = document.createElement('button');
     readStatus.classList.add('btn', 'btn-info', 'my-2');
-    const read = 'Finished Reading';
-    const notRead = 'Not read yet';
+    const read = "Not read! finish reading";
+    const notRead = 'Undo read status';
     if (myLibrary[i].readStatus === true) {
       readStatus.innerText = notRead;
     } else {
