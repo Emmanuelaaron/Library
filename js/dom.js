@@ -1,6 +1,4 @@
-/* eslint-disable no-use-before-define */
 /* eslint-disable no-unused-vars */
-
 
 function renderBook(myLibrary) {
   const bookContainer = document.getElementById('bookContainer');
